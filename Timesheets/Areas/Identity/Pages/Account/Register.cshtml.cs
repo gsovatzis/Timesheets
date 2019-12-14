@@ -127,16 +127,6 @@ namespace Timesheets.Areas.Identity.Pages.Account
 
                     await _userManager.AddToRolesAsync(user, Input.SelectedRoles);
 
-                    /*
-                    // TODO: This must be implemented correctly - THIS CODE SHOULD NOT EXIST
-                    if (selDept.RelatedUsers == null)
-                        selDept.RelatedUsers = new List<MyUser>();
-
-                    selDept.RelatedUsers.Add(user);
-                    _context.SaveChanges();
-                    // END TODO
-                    */
-
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
