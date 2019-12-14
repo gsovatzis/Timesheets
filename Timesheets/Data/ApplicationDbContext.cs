@@ -38,11 +38,19 @@ namespace Timesheets.Data
 
             // TODO: Refactor this in order when saving user and including a Department.
             //       AspNetUsers.DepartmentId should get the correct value!
-            modelBuilder.Entity<Department>()
+            /* modelBuilder.Entity<Department>()
                 .HasOne(d => d.DepartmentHead)
                 .WithOne(u => u.Department)
                 .HasForeignKey<Department>(ad => ad.DepartmentHeadId);
+            */
 
+            modelBuilder.Entity<Department>()
+                .HasMany(u => u.RelatedUsers)
+                .WithOne(d => d.Department);
+
+            modelBuilder.Entity<Department>()
+                .HasOne(d => d.DepartmentHead);
+            
             modelBuilder.Entity<IdentityRole>().HasData(
                     new IdentityRole() { Name="Admin",NormalizedName="ADMIN" },
                     new IdentityRole() { Name="Employee", NormalizedName="EMPLOYEE" },

@@ -12,6 +12,8 @@
     <Compile Remove="Migrations\20191208090019_InitialDB.Designer.cs" />
     <Compile Remove="Migrations\20191208090758_RelatedUserDepartments.cs" />
     <Compile Remove="Migrations\20191208090758_RelatedUserDepartments.Designer.cs" />
+    <Compile Remove="Migrations\20191208102334_InitialDBCreate.cs" />
+    <Compile Remove="Migrations\20191208102334_InitialDBCreate.Designer.cs" />
   </ItemGroup>
 
 
